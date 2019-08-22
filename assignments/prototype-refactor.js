@@ -254,12 +254,18 @@ class buildBuilding {
   
   // 2
   
-  function buildHouse (type = 'house', numberOfFloors = 1, numberOfParkingSpaces = 2) {
-    buildBuilding.call(this, type, numberOfFloors, numberOfParkingSpaces);
-    this.isInhabited = true;
-  }
+//   function buildHouse (type = 'house', numberOfFloors = 1, numberOfParkingSpaces = 2) {
+//     buildBuilding.call(this, type, numberOfFloors, numberOfParkingSpaces);
+//     this.isInhabited = true;
+//   }
   
-  buildHouse.prototype = Object.create(buildBuilding.prototype);
+//   buildHouse.prototype = Object.create(buildBuilding.prototype);
+
+class buildHouse extends buildBuilding {
+    constructor (type = 'house', numberOfFloors = 1, numberOfParkingSpaces = 2) {
+        super(type, numberOfFloors, numberOfParkingSpaces);
+    }
+}
   
   let house = new buildHouse ();
   console.log(house);
@@ -267,12 +273,18 @@ class buildBuilding {
   
   // 3
   
-  function buildShed (type = 'shed', numberOfFloors = 1, numberOfParkingSpaces = 0) {
-    buildBuilding.call(this, type, numberOfFloors, numberOfParkingSpaces)
-    this.isInhabited = false;
-  }
+//   function buildShed (type = 'shed', numberOfFloors = 1, numberOfParkingSpaces = 0) {
+//     buildBuilding.call(this, type, numberOfFloors, numberOfParkingSpaces)
+//     this.isInhabited = false;
+//   }
   
-  buildShed.prototype = Object.create(buildBuilding.prototype);
+//   buildShed.prototype = Object.create(buildBuilding.prototype);
+
+class buildShed extends buildBuilding {
+    constructor (type = 'shed', numberOfFloors = 1, numberOfParkingSpaces = 0) {
+        super(type, numberOfFloors, numberOfParkingSpaces);
+    }
+}
   
   let shed = new buildShed();
   console.log(shed);
