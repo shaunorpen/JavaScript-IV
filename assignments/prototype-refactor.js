@@ -227,15 +227,26 @@ class Baby extends Person {
   
   // 1
   
-  function buildBuilding (type, numberOfFloors, numberOfParkingSpaces) {
-    this.type = type;
-    this.numberOfFloors = numberOfFloors;
-    this.numberOfParkingSpaces = numberOfParkingSpaces;
-  }
+//   function buildBuilding (type, numberOfFloors, numberOfParkingSpaces) {
+//     this.type = type;
+//     this.numberOfFloors = numberOfFloors;
+//     this.numberOfParkingSpaces = numberOfParkingSpaces;
+//   }
   
-  buildBuilding.prototype.description = function () {
-    return `This ${this.type} has ${this.numberOfFloors} floors and ${this.numberOfParkingSpaces} parking spaces.`
-  }
+//   buildBuilding.prototype.description = function () {
+//     return `This ${this.type} has ${this.numberOfFloors} floors and ${this.numberOfParkingSpaces} parking spaces.`
+//   }
+
+class buildBuilding {
+    constructor (type, numberOfFloors, numberOfParkingSpaces) {
+        this.type = type;
+        this.numberOfFloors = numberOfFloors;
+        this.numberOfParkingSpaces = numberOfParkingSpaces;
+    }
+    description () {
+        return `This ${this.type} has ${this.numberOfFloors} floors and ${this.numberOfParkingSpaces} parking spaces.`
+    }
+}
   
   let building = new buildBuilding('block of flats', 3, 6);
   console.log(building);
