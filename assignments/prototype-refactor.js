@@ -58,23 +58,40 @@ Prototype Refactor
 
 */
 
-function Person (name, age) {
-    this.name = name;
-    this.age = age;
-    this.stomach = [];
-  }
+// function Person (name, age) {
+//     this.name = name;
+//     this.age = age;
+//     this.stomach = [];
+//   }
   
-  Person.prototype.greet = function () {
-    return `Hello I am ${this.name} and I am ${this.age} years old.`
-  }
+//   Person.prototype.greet = function () {
+//     return `Hello I am ${this.name} and I am ${this.age} years old.`
+//   }
   
-  Person.prototype.eat = function (edible) {
-    this.stomach.push(edible);
-  }
+//   Person.prototype.eat = function (edible) {
+//     this.stomach.push(edible);
+//   }
   
-  Person.prototype.poop = function () {
-    this.stomach = [];
-  }
+//   Person.prototype.poop = function () {
+//     this.stomach = [];
+//   }
+
+class Person {
+    constructor (name, age) {
+        this.name = name;
+        this.age = age;
+        this.stomach = [];
+    }
+    greet () {
+        return `Hello I am ${this.name} and I am ${this.age} years old.`
+    }
+    eat (edible) {
+        this.stomach.push(edible);
+    }
+    poop () {
+        this.stomach = [];
+    }
+}
   
   let mike = new Person ('Mike', 25);
   console.log(mike.greet());
