@@ -51,6 +51,14 @@ class Instructor extends Person2 {
     grade (student, subject) {
         return `${student.name} receives a perfect score on ${subject}.`;
     }
+    gradeStudent (student) {
+        function getRandomInt(min = -10, max = 90) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+          }
+        student.gradePct += getRandomInt();
+    }
 }
 
 const instructor = new Instructor ({
@@ -85,6 +93,7 @@ class Student extends Person2 {
         this.previousBackground = data.previousBackground;
         this.className = data.className;
         this.favSubjects = data.favSubjects;
+        this.gradePct = data.gradePct;
     }
     listsSubjects () {
         return this.favSubjects;
@@ -95,6 +104,13 @@ class Student extends Person2 {
     sprintChallenge (subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
     }
+    graduate () {
+        if (this.gradePct > 70) {
+            return `${this.name} has graduated from ${this.className} with a grade of ${this.gradePct}.`;
+        } else {
+            return `${this.name} has not yet graduated from ${this.className}.`
+        }
+    }
 }
 
 const student = new Student ({
@@ -104,6 +120,7 @@ const student = new Student ({
     previousBackground: 'Insurance Broker',
     className: 'CS1',
     favSubjects: ['Music', 'Math', 'History'],
+    gradePct: 0,
 });
 
 console.log(student.listsSubjects());
@@ -153,7 +170,15 @@ console.log(projectManager.debugsCode({name: 'Emily',}, 'JS2'));
 // #### Stretch Problem
 
 // * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+
+// See line 123.
+
 // * Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+
+// See line 54-61.
+
 // * Add a graduate method to a student.
 //   * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
 //   * If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
+
+// See line 107 - 113.
