@@ -86,10 +86,18 @@ class Person {
         return `Hello I am ${this.name} and I am ${this.age} years old.`
     }
     eat (edible) {
-        this.stomach.push(edible);
+        if (edible) {
+            this.stomach.push(edible);
+        } else {
+            return 'You didn\'t give me anything to eat!'
+        }
     }
     poop () {
-        this.stomach = [];
+        if (this.stomach.length > 0) {
+            this.stomach = [];
+        } else {
+            return 'My stomach is empty - I don\'t need the loo!';
+        }
     }
 }
   
