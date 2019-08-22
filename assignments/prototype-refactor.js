@@ -162,10 +162,14 @@ class Car2 {
         }
     }
     crash () {
-        this.isCrashed = true;
+        if (this.isCrashed === false) {
+            this.isCrashed = true;
+        }
     }
     repair () {
-        this.isCrashed = false;
+        if (this.isCrashed === true) {
+            this.isCrashed = false;
+        }
     }
 }
   
