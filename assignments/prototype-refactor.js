@@ -195,15 +195,21 @@ class Car2 {
   
   */
   
-  function Baby (name, age) {
-    Person.call(this, name, age);
-  }
+//   function Baby (name, age) {
+//     Person.call(this, name, age);
+//   }
   
-  Baby.prototype = Object.create(Person.prototype);
+//   Baby.prototype = Object.create(Person.prototype);
   
-  Baby.prototype.play = function () {
-    return console.log('Yada yada yada');
-  }
+//   Baby.prototype.play = function () {
+//     return console.log('Yada yada yada');
+//   }
+
+class Baby extends Person {
+    play () {
+        return console.log('Yada yada yada');
+    }
+}
   
   let myBaby = new Baby ('Ted', 0);
   console.log(myBaby);
